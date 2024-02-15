@@ -1,0 +1,241 @@
+@import url("//fonts.googleapis.com/css?family=Raleway:100,200,300,500,600,700,800,900");
+
+*,/*todos los elementos*/
+*::before, /*para asegurar que los elementos generados por CSS de forma dinámica también sigan estas reglas*/
+*::after {
+  box-sizing: border-box; /* sin esta regla, el ancho y alto de un elemento se calcula sin tener en cuenta el relleno y el borde*/
+  margin: 0;  /* para garantizar que no haya márgenes o rellenos no deseados aplicados de forma predeterminada por el navegador*/
+  padding: 0;
+}
+
+/*FUENTES*/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.formulario h2, .main-color-carac h2, .main-color-carac i{
+    font-size: xx-large;
+}
+
+.formulario h6{
+    font-size: smaller;
+}
+
+/*SOLO COLORES*/
+header p a, header li a:hover, .main-color, .main-color a, .read-more, .formulario, .formulario button{
+    color: white;
+}
+
+header, footer{
+    background-color: black;
+}
+
+header li a, footer a{
+    color: rgb(189, 187, 191);
+}
+
+.formulario, .read-more, .formulario button{
+    background-color: rgb(216, 71, 128);
+}
+
+/*FLEX*/
+header, .formulario, footer{
+    display: flex;
+    align-items: center;
+}
+
+.formulario, footer{
+    flex-direction: column;
+}
+
+/*HEADER*/
+header{
+    flex-direction: row;
+    justify-content:space-between;
+    height: 5em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+header a, .bolder, footer a {
+    text-decoration: none;
+}
+
+header span, .main-color-post p, footer p, footer i{
+    color: rgb(76, 75, 77);
+}
+
+header ul li{
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+/*MAIN*/
+button, footer i{
+    cursor: pointer;
+}
+
+.main-color{
+    background-image: url(fotos/bg.jpg);
+    background-size: cover;
+    height: 140em;
+}
+
+.main-color-title{
+    padding: 5em;
+    font-size: 2.5em;
+}
+
+.bolder, .read-more, .formulario button{
+    font-weight: bolder;
+}
+
+.read-more{
+    padding: 1em;
+    padding-right: 3em;
+    padding-left: 3em;
+    border-radius: 10px;
+    font-size:large;
+}
+
+.read-more, input{
+    border: 1px solid rgb(216, 71, 128);
+}
+
+.main-color-title button{
+    margin-top: 3em;
+}
+
+.main-color-post{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 3em;
+    margin-left: 5em;
+}
+
+.main-color-post div{
+    background-color: white;
+    width: 23em;
+    height: 25em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.main-color-title, .main-color-post, .formulario {
+    text-align: center;
+}
+
+.main-color-post p{
+    padding: 2em;
+}
+
+.main-color-carac, .main-color-carac .uno, .main-color-carac .dos, .main-color-post{
+    display: grid;
+}
+
+.main-color-carac{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 5em;
+    margin-left: 10em;
+}
+
+.main-color-carac div:first-child(){
+    height: 25em;
+}
+
+.main-color-carac .uno{
+    width: 28em;
+    grid-template-areas: "icono titulo"
+                         "icono texto"
+                         "hr hr";
+    /* grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+}
+
+.main-color-carac .dos{
+    width: 28em;
+    grid-template-areas: "icono titulo"
+                         "icono texto";
+    /* grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+}
+
+.main-color-carac p{
+    grid-area: texto;
+    line-height: 1.5em;
+}
+
+.main-color-carac h2{
+    grid-area: titulo;
+}
+
+.main-color-carac i{
+    grid-area: icono;
+    margin-right: 1em;
+}
+
+.main-color-carac p{
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.main-color-carac hr{
+    grid-area: hr;
+    width: 50vh;
+    margin-bottom: 3em;
+}
+
+/*FORMULARIO*/
+.formulario{
+    height: 50em;
+    justify-content: center;
+}
+
+.formulario h2{
+    margin-bottom: 0.2em;
+}
+
+.formulario h6{
+    margin-bottom: 3em;
+}
+
+.formulario li{
+    list-style-type: none;
+}
+
+.formulario button{
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: medium;
+}
+
+.formulario button:hover {
+    background: #e1719d;
+}
+
+input, textarea {
+    width: 60em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+/*FOOTER*/
+footer{
+    height: 20em;
+    justify-content:space-around;
+}
+
+footer i{
+    border: 1px solid rgb(76, 75, 77);
+    border-radius: 20px;
+    /*Para que tengan el mismo tamaño y el círculo*/
+    padding: 0.4em; /*Para el círculo*/
+    width: 1.8em; 
+    height: 1.8em;
+}
