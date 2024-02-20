@@ -1,0 +1,241 @@
+*,/*todos los elementos*/
+*::before, /*para asegurar que los elementos generados por CSS de forma dinámica también sigan estas reglas*/
+*::after {
+  box-sizing: border-box; /* sin esta regla, el ancho y alto de un elemento se calcula sin tener en cuenta el relleno y el borde*/
+  margin: 0;  /* para garantizar que no haya márgenes o rellenos no deseados aplicados de forma predeterminada por el navegador*/
+  padding: 0;
+}
+
+/*FUENTES*/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.main__formulario h2, .main__content h2, .main__content i{
+    font-size: xx-large;
+}
+
+.main__formulario h6{
+    font-size: smaller;
+}
+
+/*SOLO COLORES*/
+header p a, header li a:hover, .main__color, .main__color a, .button__read__more, .main__formulario, .main__formulario button{
+    color: map-get($colores, white-color);
+}
+
+header, footer{
+    background-color: map-get($colores, black-color);
+}
+
+header li a, footer a{
+    color: map-get($colores, light-gray);
+}
+
+.main__formulario, .button__read__more, .main__formulario button{
+    background-color: map-get($colores, dark-coral);
+}
+
+/*HEADER*/
+header{
+    @include flex(row, space-between, center);
+    min-height: 5em;
+    padding-right: 1em;
+    padding-left: 1em;
+
+    ul li{
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+}
+
+header a, .text__bolder, footer a {
+    text-decoration: none;
+}
+
+header span, .main__posts p, footer p, footer i{
+    color: map-get($colores, dark-gray);
+}
+
+
+/*MAIN*/
+button, footer i{
+    cursor: pointer;
+}
+
+/*MAIN__COLOR*/
+.main__color{
+    background-image: $fondo;
+    background-size: cover;
+    max-height: 160em;
+}
+
+.main__color__title{
+    padding: 5em;
+    font-size: 2.5em;
+}
+
+.text__bolder, .button__read__more, .main__formulario button{
+    font-weight: bolder;
+}
+
+.button__read__more{
+    padding: 1em;
+    padding-right: 3em;
+    padding-left: 3em;
+    border-radius: 10px;
+    font-size:large;
+}
+
+.button__read__more, input{
+    border: 1px solid map-get($colores, dark-coral);
+}
+
+.main__color__title button{
+    margin-top: 3em;
+}
+
+/*MAIN__POSTS*/
+.main__posts{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23em, 1fr)); /* Usa auto-fill para ajustar automáticamente las columnas */
+    gap: 1em;
+    padding: 5em;
+
+    p{
+        padding: 1em;
+    }
+    
+    img{
+        width: 100%;
+    }
+}
+
+.main__posts div{
+    background-color: map-get($colores, white-color);
+    min-height: 23em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+}
+
+.main__content, .main__content__left, .main__content__right, .main__posts{
+    display: grid;
+}
+
+.main__color__title, .main__color-post, .main__formulario {
+    text-align: center;
+}
+
+/*MAIN__CONTENT*/
+.main__content{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 30em;
+    min-width: 28em;
+    margin-top: 5em;
+    margin-left: 10em;
+    margin-right: 10em;
+    gap: 5em;
+
+    p{
+        grid-area: texto;
+        line-height: 1.5em;
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+
+    h2{
+        grid-area: titulo;
+    }
+
+    i{
+        grid-area: icono;
+        margin-right: 1em;
+    }
+
+    hr{
+        grid-area: hr;
+        min-width: 50vh;
+        margin-bottom: 3em;
+    }
+}
+
+.main__content div:first-child(){
+    min-height: 25em;
+}
+
+.main__content__left{
+    grid-template-areas: "icono titulo"
+                         "icono texto"
+                         "hr hr";
+    /* grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+}
+
+.main__content__right{
+    grid-template-areas: "icono titulo"
+                         "icono texto";
+    /* grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+}
+
+
+/*FORMULARIO*/
+.main__formulario{
+    @include flex(column, center);
+    min-height: 50em;
+
+    h2{
+        margin-bottom: 0.2em;
+    }
+
+    h6{
+        margin-bottom: 3em;
+    }
+
+    li{
+        list-style-type: none;
+    }
+
+    button{
+        border: 1px solid map-get($colores, white-color);
+        border-radius: 3px;
+        padding: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        font-size: medium;
+
+        &:hover{
+            background: map-get($colores, light-coral);
+        }
+    }
+}
+
+input, textarea {
+    min-width: 60em;
+    border: 1px solid map-get($colores, lightgray-color);
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+/*FOOTER*/
+footer{
+    @include flex(column, center, center);
+    min-height: 20em;
+
+    i{
+        border: 1px solid map-get($colores, dark-gray);
+        border-radius: 20px;
+        /*Para que tengan el mismo tamaño y el círculo*/
+        padding: 0.4em; /*Para el círculo*/
+        min-width: 1.8em; 
+        min-height: 1.8em;
+    }
+
+    div{
+        padding: 3em;
+    }
+}
+
