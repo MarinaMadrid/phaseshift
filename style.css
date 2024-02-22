@@ -102,7 +102,7 @@ button, footer i {
 /*MAIN__POSTS*/
 .main__posts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(23em, 1fr)); /* Usa auto-fill para ajustar automáticamente las columnas */
+  grid-template-columns: repeat(auto-fill, minmax(27em, 1fr)); /* Usa auto-fill para ajustar automáticamente las columnas */
   gap: 1em;
   padding: 5em;
 }
@@ -125,7 +125,7 @@ button, footer i {
   display: grid;
 }
 
-.main__color__title, .main__color-post, .main__formulario {
+.main__color__title, .main__posts, .main__formulario {
   text-align: center;
 }
 
