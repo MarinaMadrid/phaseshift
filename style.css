@@ -71,7 +71,7 @@ button, footer i {
 .main__color {
   background-image: url(fotos/bg.jpg);
   background-size: cover;
-  max-height: 160em;
+  max-height: 350em;
 }
 
 .main__color__title {
